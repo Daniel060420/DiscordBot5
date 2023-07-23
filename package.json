@@ -1,0 +1,15 @@
+{
+  "name": "discordbot-1",
+  "version": "1.0.0",
+  "description": "## Bot de ejemplo para youtube",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Jesus Daniel",
+  "license": "ISC",
+  "dependencies": {
+    "discord.js": "^14.11.0"
+  }
+}
