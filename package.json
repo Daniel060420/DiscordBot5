@@ -10,6 +10,7 @@
   "author": "Jesus Daniel",
   "license": "ISC",
   "dependencies": {
-    "discord.js": "^14.11.0"
+    "discord-bot-create": "^1.0.2",
+    "discord.js": "^14.13.0"
   }
 }
