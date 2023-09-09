@@ -1,23 +1,28 @@
+//Importacion de librerias necesarias
 const Discord = require('discord.js')
 const { Client, Intents } = require('discord.js')
 const { CommandManager, EventManager } = require('discord-bot-create')
+const CONFIG = require('./config.json')
+
+//Creacion del cliente de discord
 const client = new Discord.Client({
     intents: ['MessageContent', 'GuildMessages', 'Guilds']
 });
 
-client.on('ready', () => {
-    console.log('El bot se ha conectado')
-});
+//Creacion de clases
 const comandos = new CommandManager()
 const event = new EventManager()
-comandos.definirPrefijoPorDefecto('>>')
+
+//Command handler
+comandos.definirPrefijoPorDefecto(CONFIG.prefix)
 comandos.cargarComandosDesdeDirectorio('./commands')
-event.CargarEventosDesdeDirectorio(client, './event')
 
-client.on('messageCreate', (message) => {
-    if(!message.content.startsWith(comandos.prefijoPorDefecto)) return;
-    comandos.ejecutarComando(client, message)
-    }
-)
+//Exportacion de modulos necesarios
+module.exports = comandos;
 
-client.login(TuTokenDelBot)
+//Event handler
+event.cargarEventosDesdeDirectorio(client, './event')
+
+
+//inicializar el bot
+client.login(CONFIG.token)
